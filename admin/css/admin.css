@@ -1,7 +1,7 @@
 .sidebar {
     background-color: #f1f1f1;
     padding: 20px;
-    height: 100vh;
+    height: auto;
   }
   
   .logo img {
