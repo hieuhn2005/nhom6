@@ -13,3 +13,16 @@ function delete_sanpham($id){
     $sql="delete from san_pham where id=".$id;
     pdo_execute($sql);
 }
+function loadone_sanpham($id){
+    $sql="select * from san_pham where id=".$id;
+    $sp=pdo_query_one($sql);
+    return $sp;
+}
+
+function update_sanpham($id,$tensp,$giatien,$mota,$hinh){
+    if($hinh!="")
+    $sql="update san_pham set tensp='".$tensp."', giatien='".$giatien."', mota='".$mota."', anhsp='".$hinh."' where id=".$id;
+    else
+    $sql="update san_pham set tensp='".$tensp."', giatien='".$giatien."', mota='".$mota."' where id=".$id;
+    pdo_execute($sql);
+}
