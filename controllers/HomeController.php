@@ -9,20 +9,17 @@ class HomeController
         $this->modelSanPham = new SanPham();
     }
 
-    public function home()
-    {
-        echo "Hello home trg4erwghb4rv  ";
-    }
 
     public function trangchu()
     {
-        echo "Dfocewrkogvhbnjrdw";
+        require_once './views/trangchu.php';
     }
-
-    public function dangSachSanPham()
+    
+    public function home()
     {
-        $listProduct = $this->modelSanPham->getAllProduct();
-        //var_dump($listProduct);die();
-        require_once './views/listsanpham.php';
+        $listSanPham = $this->modelSanPham->getAllSanPham();
+        // var_dump($listProduct);die();
+        require_once './views/trangchu.php';
     }
 }
+
