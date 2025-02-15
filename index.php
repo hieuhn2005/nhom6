@@ -20,9 +20,6 @@ match ($act) {
     '/' => (new HomeController())->home(),
 
 
-    'trangchu' => (new HomeController())->trangchu(),
-    // BASE_URL/?act=trangchu
-
-    'dang-sach-san-pham' => (new HomeController())->dangSachSanPham()
-    // BASE_URL/?act=dang-sach-san-pham
+    'chi-tiet-san-pham' => (new HomeController())->chiTietSanPham()
+    // // BASE_URL/?act=dang-sach-san-pham
 };
