@@ -17,12 +17,9 @@ $act = $_GET['act'] ?? '/';
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 match ($act) {
 
-    '/' => (new HomeController())->trangchu(),
+    '/' => (new HomeController())->home(),
 
 
-    'trangchu' => (new HomeController())->home(),
-    // BASE_URL/?act=trangchu
-
-    // 'dang-sach-san-pham' => (new HomeController())->dangSachSanPham()
+    'chi-tiet-san-pham' => (new HomeController())->chiTietSanPham()
     // // BASE_URL/?act=dang-sach-san-pham
 };

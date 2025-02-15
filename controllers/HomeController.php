@@ -9,17 +9,30 @@ class HomeController
         $this->modelSanPham = new SanPham();
     }
 
-
-    public function trangchu()
-    {
-        require_once './views/trangchu.php';
-    }
-    
     public function home()
     {
-        $listSanPham = $this->modelSanPham->getAllSanPham();
+        $listsansham = $this->modelSanPham->getAllSanPham();
         // var_dump($listProduct);die();
         require_once './views/trangchu.php';
     }
+
+    public function chiTietSanPham(){
+        $id = $_GET['id_san_pham'];
+
+        $SanPham = $this->modelSanPham->getDetailSanPham($id);
+
+        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        
+        $listBinhluan = $this->modelSanPham->getBinhLuanFromSanPham($id);
+
+        // var_dump($listBinhluan);die;
+        if ($SanPham) {
+            require_once 'views/sanphams/detaiSanPham.php';
+        } else {
+            header("location: " . BASE_URL );
+            exit();
+        }
+    }
+    
 }
 

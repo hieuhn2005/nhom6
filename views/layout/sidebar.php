@@ -25,7 +25,7 @@
                                     <!-- main menu navbar start -->
                                     <nav class="desktop-menu">
                                         <ul>
-                                            <li class="active"><a href="#">TRANG CHỦ</a></li>
+                                            <li><a href="#">TRANG CHỦ</a></li>
                                             <li><a href="#">SẢN PHẨM</a></li>
                                             <li><a href="#">LIÊN HỆ VỚI CHÚNG TÔI</a></li>
                                         </ul>

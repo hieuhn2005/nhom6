@@ -81,3 +81,9 @@ function uploadFileAlbum($file, $folderUpload, $key){
     }
  }
 // Debug 
+
+
+// 
+function formatPrice($price){
+    return number_format($price, 0, ',', '.');
+}
