@@ -15,8 +15,11 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
+                <div class="col-sm-11">
                     <h1>Quản lý danh sách sản phẩm</h1>
+                </div>
+                <div class="col-12 col-sm-1">
+                    <a href="<?= BASE_URL_ADMIN . '?act=san-pham' ?>" class="btn btn-warning">Quay lại</a>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -61,7 +64,7 @@
 
                                 <div class="form-group col-6">
                                     <label>Ảnh sản phẩm</label>
-                                    <input type="file" class="form-control" name="hinh_anh" >
+                                    <input type="file" class="form-control" name="hinh_anh">
                                     <?php if (isset($_SESSION['error']['hinh_anh'])) { ?>
                                         <p class="text-danger"><?= $_SESSION['error']['hinh_anh'] ?></p>
                                     <?php } ?>
@@ -69,7 +72,7 @@
 
                                 <div class="form-group col-6">
                                     <label>Album ảnh</label>
-                                    <input type="file" class="form-control" name="img_array[]" multiple >
+                                    <input type="file" class="form-control" name="img_array[]" multiple>
                                 </div>
 
                                 <div class="form-group col-6">
@@ -93,7 +96,7 @@
                                     <select class="form-control" name="danh_muc_id" id="exampleFormControlSelect1">
                                         <option selected disabled>Chọn danh mục sản phẩm </option>
 
-                                        <?php foreach($listDanhMuc as $DanhMuc): ?>
+                                        <?php foreach ($listDanhMuc as $DanhMuc): ?>
                                             <option value="<?= $DanhMuc['id'] ?>"><?= $DanhMuc['ten_danh_muc'] ?></option>
                                         <?php endforeach ?>
                                     </select>
@@ -115,11 +118,11 @@
                                 </div>
 
                                 <div class="form-group col-12">
-                                    <label >Mô tả</label>
+                                    <label>Mô tả</label>
                                     <textarea name="mo_ta" id="" class="form-control" placeholder="Nhập mô tả"></textarea>
                                 </div>
 
-                                
+
 
                             </div>
 

@@ -15,11 +15,8 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-11">
-                    <h1>Quản lý tài khoản quản trị viên</h1>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?= BASE_URL_ADMIN . '?act=list-tai-khoan-quan-tri' ?>" class="btn btn-warning">Quay lại</a>
+                <div class="col-sm-6">
+                    <h1>Quản lý banner</h1>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -32,32 +29,28 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Thêm tài khoản quản trị</h3>
+                            <h3 class="card-title">Thêm banner</h3>
                         </div>
-
-
-                        <form action="<?= BASE_URL_ADMIN . '?act=them-quan-tri' ?>" method="POST">
+                        <form action="<?= BASE_URL_ADMIN . '?act=add_banner' ?>" method="POST">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label>Họ Tên</label>
-                                    <input type="text" class="form-control" name="ho_ten" placeholder="Nhập họ tên">
-                                    <?php if (isset($_SESSION['error']['ho_ten'])) { ?>
-                                        <p class="text-danger"><?= $_SESSION['error']['ho_ten'] ?></p>
+                                    <label>Tên banner</label>
+                                    <input type="text" class="form-control" name="ten_banner" placeholder="Nhập tên banner">
+                                    <?php if (isset($errors['ten_banner'])) { ?>
+                                        <p class="text-danger"><?= $errors['ten_banner'] ?></p>
                                     <?php } ?>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" name="email" placeholder="Nhập e mail">
-                                    <?php if (isset($_SESSION['error']['email'])) { ?>
-                                        <p class="text-danger"><?= $_SESSION['error']['email'] ?></p>
-                                    <?php } ?>
+                                    <label>Chọn Hình Ảnh:</label>
+                                    <input type="file" class="form-control-file" id="anh" name="anh" required accept="image/*">
                                 </div>
 
                             </div>
-
+                            <!-- làm nút submit với nút quay lại ngang hàng -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">thêm</button>
+                                <a href="<?= BASE_URL_ADMIN . '?act=danh-muc' ?>" class="btn btn-warning">Quay lại</a>
                             </div>
                         </form>
                     </div>
@@ -78,3 +71,5 @@
 </body>
 
 </html>
+
+

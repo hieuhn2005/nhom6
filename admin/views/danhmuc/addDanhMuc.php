@@ -31,27 +31,26 @@
                         <div class="card-header">
                             <h3 class="card-title">Thêm danh muc sản phẩm</h3>
                         </div>
-
-
                         <form action="<?= BASE_URL_ADMIN . '?act=them-danh-muc' ?>" method="POST">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label >Tên danh mục</label>
+                                    <label>Tên danh mục</label>
                                     <input type="text" class="form-control" name="ten_danh_muc" placeholder="Nhập tên danh mục">
-                                    <?php if(isset($errors['ten_danh_muc'])){ ?>
+                                    <?php if (isset($errors['ten_danh_muc'])) { ?>
                                         <p class="text-danger"><?= $errors['ten_danh_muc'] ?></p>
                                     <?php } ?>
                                 </div>
 
                                 <div class="form-group">
-                                    <label >Mô tả</label>
+                                    <label>Mô tả</label>
                                     <textarea name="mo_ta" id="" class="form-control" placeholder="Nhập mô tả"></textarea>
                                 </div>
 
                             </div>
-
+                            <!-- làm nút submit với nút quay lại ngang hàng -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Lưu</button>
+                                <a href="<?= BASE_URL_ADMIN . '?act=danh-muc' ?>" class="btn btn-warning">Quay lại</a>
                             </div>
                         </form>
                     </div>
