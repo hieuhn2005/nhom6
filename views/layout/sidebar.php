@@ -11,8 +11,9 @@
                         <!-- start logo area -->
                         <div class="col-lg-2">
                             <div class="logo">
-                                <a href="index.html">
-                                    <img src="assets/images/logo1.png" alt="Brand Logo">
+                                <a href="<?= BASE_URL . '?act=/'?>">
+                                    <img src="assets/images/logo2.png" alt="Brand Logo"
+                                        width="200px" height="130px">
                                 </a>
                             </div>
                         </div>
@@ -25,7 +26,7 @@
                                     <!-- main menu navbar start -->
                                     <nav class="desktop-menu">
                                         <ul>
-                                            <li><a href="#">TRANG CHỦ</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=/'?>">TRANG CHỦ</a></li>
                                             <li><a href="#">SẢN PHẨM</a></li>
                                             <li><a href="#">LIÊN HỆ VỚI CHÚNG TÔI</a></li>
                                         </ul>
@@ -48,14 +49,23 @@
                                 </div>
                                 <div class="header-configure-area">
                                     <ul class="nav justify-content-end">
+                                        <label for="">
+                                            <?php if (isset($_SESSION['user_client'])) {
+                                                echo $_SESSION['user_client'];
+                                            } ?>
+                                        </label>
                                         <li class="user-hover">
                                             <a href="#">
                                                 <i class="pe-7s-user"></i>
                                             </a>
                                             <ul class="dropdown-list">
-                                                <li><a href="login-register.html">Đăng Nhập</a></li>
-                                                <li><a href="login-register.html">Đăng Ký</a></li>
-                                                <li><a href="my-account.html">Tài Khoản</a></li>
+                                                <?php if (!isset($_SESSION['user_client'])) { ?>
+                                                    <li><a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập </a></li>                                                   
+                                                <?php } else { ?>
+                                                    <li><a href="#">Tài khoản</a></li>
+                                                    <li><a href="<?= BASE_URL . '?act=logout' ?>" onclick="return confirm('Đăng xuất tài khoản')">Đăng Xuất</a></li>
+                                                <?php } ?>
+                                                
                                             </ul>
                                         </li>
                                         <li>

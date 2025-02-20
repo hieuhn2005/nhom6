@@ -29,7 +29,7 @@
                 <div class="col-6">
                     <img src="<?= BASE_URL .  $KhachHang['anh_dai_dien'] ?>" style="width: 70%" alt="" onerror="this.onerror=null; this.src='https://cdn1.iconfinder.com/data/icons/marketing-19/100/Profile-512.png'">
                 </div>
-                <div class="col-6">
+                <div class="col-5">
                     <div class="container">
                         <table class="table table-borderless">
                             <tbody style="font-size: large;">
@@ -65,7 +65,11 @@
                         </table>
                     </div>
                 </div>
-                
+                <!-- QUAY LẠI -->
+                <div class="col-sm-1">
+                    <a href="<?= BASE_URL_ADMIN . '?act=list-tai-khoan-khach-hang' ?>" class="btn btn-warning">Quay lại</a>
+                </div>
+
                 <div class="col-12">
                     <hr>
                     <h2>Lịch sử mua hàng</h2>
@@ -139,14 +143,14 @@
                                         <td><?= $BinhLuan['trang_thai'] == 1 ? 'Hiển thị' : 'Bị ẩn' ?></td>
                                         <td>
 
-                                        <form action="<?= BASE_URL_ADMIN . '?act=update-trang-thai-binh-luan' ?>" method="post">
-                                            <input type="hidden" name="id_binh_luan" value="<?= $BinhLuan['id'] ?>">
-                                            <input type="hidden" name="name_views" value="detail_khach">
-                                            <button onclick="return confirm('Bạn có muốn ẩn bình luận này hay không ?')" class="btn btn-success">
-                                                <?= $BinhLuan['trang_thai'] == 1 ? 'Ẩn' : 'Bỏ ẩn'  ?>
-                                            </button>
-                                        </form>
-                                            
+                                            <form action="<?= BASE_URL_ADMIN . '?act=update-trang-thai-binh-luan' ?>" method="post">
+                                                <input type="hidden" name="id_binh_luan" value="<?= $BinhLuan['id'] ?>">
+                                                <input type="hidden" name="name_views" value="detail_khach">
+                                                <button onclick="return confirm('Bạn có muốn ẩn bình luận này hay không ?')" class="btn btn-success">
+                                                    <?= $BinhLuan['trang_thai'] == 1 ? 'Ẩn' : 'Bỏ ẩn'  ?>
+                                                </button>
+                                            </form>
+
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
@@ -169,18 +173,19 @@
 
 </body>
 <script>
-  $(function() {
-    $("#example1").DataTable({
-      "responsive": true,
-      "lengthChange": false,
-      "autoWidth": false,
-      // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-        "responsive": true,
-      "lengthChange": false,
-      "autoWidth": false,
+    $(function() {
+        $("#example1").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+            // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
+        });
     });
-  });
 </script>
+
 </html>

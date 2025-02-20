@@ -15,8 +15,11 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
+                <div class="col-sm-11">
                     <h1>Quản lý tài khoản quản trị viên</h1>
+                </div>
+                <div class="col-sm-1">
+                    <a href="<?= BASE_URL_ADMIN . '?act=list-tai-khoan-quan-tri' ?>" class="btn btn-warning">Quay lại</a>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -63,8 +66,8 @@
                                 <div class="form-group">
                                     <label for="inputStatus">Trạng thái tài khoản</label>
                                     <select id="inputStatus" name="trang_thai" class="form-control custom-select">
-                                        <option <?= $QuanTri['trang_thai'] == 1 ? 'selected':'' ?> value="1">hoạt động</option>
-                                        <option <?= $QuanTri['trang_thai'] !== 1 ? 'selected':'' ?> value="2">Không hoạt động</option>
+                                        <option <?= $QuanTri['trang_thai'] == 1 ? 'selected' : '' ?> value="1">hoạt động</option>
+                                        <option <?= $QuanTri['trang_thai'] !== 1 ? 'selected' : '' ?> value="2">Không hoạt động</option>
                                     </select>
                                 </div>
 

@@ -8,7 +8,6 @@
 <!-- Main Sidebar Container -->
 <?php include './views/layout/sidebar.php'; ?>
 
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -16,7 +15,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Quản lý tài khoản quản trị viên</h1>
+          <h1>Quản lý banner</h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -29,8 +28,8 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <a href="<?= BASE_URL_ADMIN . '?act=form-them-quan-tri' ?>">
-                <button class="btn btn-success">Thêm tài khoản</button>
+              <a href="<?= BASE_URL_ADMIN . '?act=form_add_banner' ?>">
+                <button class="btn btn-success">Thêm banner</button>
               </a>
             </div>
             <!-- /.card-header -->
@@ -39,28 +38,22 @@
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Họ Tên</th>
-                    <th>Email</th>
-                    <th>Số điện thoại</th>
-                    <th>Trạnh thái</th>
+                    <th>Tên banner</th>
+                    <th>Ảnh</th>
                     <th>Thao tác</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($listQuanTri as $key => $QuanTri) : ?>
+                  <?php foreach ($banners as $key => $banner) : ?>
                     <tr>
                       <td><?= $key + 1 ?></td>
-                      <td><?= $QuanTri['ho_ten'] ?></td>
-                      <td><?= $QuanTri['email'] ?></td>
-                      <td><?= $QuanTri['so_dien_thoai'] ?></td>
-                      <td><?= $QuanTri['trang_thai'] == 1 ? 'hoạt động':'không hoạt động' ?></td>
+                      <td><?= $banner['ten_banner'] ?></td>
+                      <td><img src="<?= $banner['anh'] ?>" alt="<?= $banner['ten_banner'] ?>" width="200"></td>
                       <td>
-                        <a href="<?= BASE_URL_ADMIN . '?act=form-sua-quan-tri&id_quan_tri=' . $QuanTri['id'] ?>">
-                          <button class="btn btn-warning"><i class="fas fa-cogs"></i></button>
-                        </a>
-                        <a href="<?= BASE_URL_ADMIN . '?act=reset-password&id_quan_tri=' . $QuanTri['id'] ?>" 
-                          onclick="return confirm('Bạn có muốn reset password của tài khoản hay không ?')">
-                          <button class="btn btn-danger"><i class="fas fa-circle-notch"></i></button>
+                        
+                        <a href="<?= BASE_URL_ADMIN . '?act=delete_banner&id_banner=' . $banner['id'] ?>" 
+                          onclick="return confirm('Bạn có đồng ý xóa hay không???')">
+                          <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </a>
                       </td>
                     </tr>
@@ -68,11 +61,9 @@
                 </tbody>
                 <tfoot>
                   <tr>
-                  <th>STT</th>
-                    <th>Họ Tên</th>
-                    <th>Email</th>
-                    <th>Số điện thoại</th>
-                    <th>Trạnh thái</th>
+                    <th>STT</th>
+                    <th>Tên banner</th>
+                    <th>Ảnh</th>
                     <th>Thao tác</th>
                   </tr>
                 </tfoot>

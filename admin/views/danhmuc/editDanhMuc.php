@@ -58,6 +58,7 @@ include './views/layout/header.php';
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
+                                <a href="<?= BASE_URL_ADMIN . '?act=danh-muc' ?>" class="btn btn-warning">Quay lại</a>
                             </div>
                         </form>
                     </div>

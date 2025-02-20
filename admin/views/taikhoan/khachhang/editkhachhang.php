@@ -15,11 +15,14 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
+                <div class="col-sm-11">
                     <h1>Quản lý tài khoản khách hàng</h1>
                 </div>
-            </div>
-        </div><!-- /.container-fluid -->
+                <div class="col-sm-1">
+                    <a href="<?= BASE_URL_ADMIN . '?act=list-tai-khoan-khach-hang' ?>" class="btn btn-warning">Quay lại</a>
+                </div>
+            </div><!-- /.container-fluid
+            </div> -->
     </section>
 
     <!-- Main content -->
@@ -61,7 +64,7 @@
 
                                 <div class="form-group">
                                     <label>Ngày sinh</label>
-                                    <input type="date" class="form-control" name="ngay_sinh" value="<?= $khach_hang['ngay_sinh'] ?>" >
+                                    <input type="date" class="form-control" name="ngay_sinh" value="<?= $khach_hang['ngay_sinh'] ?>">
                                     <?php if (isset($_SESSION['error']['ngay_sinh'])) { ?>
                                         <p class="text-danger"><?= $_SESSION['error']['ngay_sinh'] ?></p>
                                     <?php } ?>
@@ -70,8 +73,8 @@
                                 <div class="form-group">
                                     <label>Giới tính</label>
                                     <select id="inputStatus" name="gioi_tinh" class="form-control custom-select">
-                                        <option <?= $khach_hang['gioi_tinh'] == 1 ? 'selected':'' ?> value="1">Nam</option>
-                                        <option <?= $khach_hang['gioi_tinh'] !== 1 ? 'selected':'' ?> value="2">Nữ</option>
+                                        <option <?= $khach_hang['gioi_tinh'] == 1 ? 'selected' : '' ?> value="1">Nam</option>
+                                        <option <?= $khach_hang['gioi_tinh'] !== 1 ? 'selected' : '' ?> value="2">Nữ</option>
                                     </select>
                                 </div>
 
@@ -86,8 +89,8 @@
                                 <div class="form-group">
                                     <label for="inputStatus">Trạng thái tài khoản</label>
                                     <select id="inputStatus" name="trang_thai" class="form-control custom-select">
-                                        <option <?= $khach_hang['trang_thai'] == 1 ? 'selected':'' ?> value="1">hoạt động</option>
-                                        <option <?= $khach_hang['trang_thai'] !== 1 ? 'selected':'' ?> value="2">không hoạt động</option>
+                                        <option <?= $khach_hang['trang_thai'] == 1 ? 'selected' : '' ?> value="1">hoạt động</option>
+                                        <option <?= $khach_hang['trang_thai'] !== 1 ? 'selected' : '' ?> value="2">không hoạt động</option>
                                     </select>
                                 </div>
 

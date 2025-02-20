@@ -7,8 +7,8 @@
                         <div class="widget-item">
                             <div class="widget-title">
                                 <div class="widget-logo">
-                                    <a href="index.html">
-                                        <img src="assets/images/logo1.png" alt="brand logo" width="200px" height="100px">
+                                    <a href="<?= BASE_URL . '?act=/'?>">
+                                        <img src="assets/images/logo2.png" alt="brand logo" width="200px" height="100px">
                                     </a>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="copyright-text text-center">
-                            <p>©2025 - Công ty TNHH & XNK TechSpot. GPKD số 01060818 do Sở KH & ĐT Thành phố Hà Nội cấp ngày 10/01/2025</p>
+                            <p>©2025 - Công ty TNHH & XNK MOCO. GPKD số 01060818 do Sở KH & ĐT Thành phố Hà Nội cấp ngày 10/01/2025</p>
                         </div>
                     </div>
                 </div>

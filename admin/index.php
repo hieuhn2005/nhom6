@@ -12,6 +12,8 @@ require_once './controllers/AdminSanPhamController.php';
 require_once './controllers/AdminDonHangController.php';
 require_once './controllers/AdminBaoCaoThongKeController.php';
 require_once './controllers/AdminTaiKhoanController.php';
+// banner
+require_once './controllers/AdminBannerController.php';
 
 
 
@@ -21,6 +23,7 @@ require_once './models/AdminSanPham.php';
 require_once './models/AdminDonHang.php';
 // require_once './models/AdminBaoCaoThongKe.php';
 require_once './models/AdminTaiKhoan.php';
+require_once './models/AdminBanner.php';
 
 
 
@@ -90,4 +93,10 @@ match ($act) {
     'login-admin' => (new  AdminTaiKhoanController())->formlogin(),
     'check-login-admin' => (new  AdminTaiKhoanController())->login(),
     'logout-admin' => (new  AdminTaiKhoanController())->logout(),
+
+    // banner
+    'view_banner' => (new AdminBannerController())->listBanners(),
+    'form_add_banner' => (new AdminBannerController())->addBannerForm(),
+    'add_banner' => (new AdminBannerController())->addBanner(),
+    'delete_banner' => (new AdminBannerController())->deleteBanner(),
 };

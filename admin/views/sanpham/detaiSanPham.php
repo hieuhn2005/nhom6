@@ -15,8 +15,11 @@
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
-        <div class="col-sm-6">
+        <div class="col-sm-11">
           <h1>Quản lý danh sách sản phẩm</h1>
+        </div>
+        <div class="col-sm-1">
+            <a href="<?= BASE_URL_ADMIN . '?act=san-pham' ?>" class="btn btn-warning">Quay lại</a>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -40,7 +43,7 @@
               <?php endforeach ?>
             </div>
           </div>
-          <div class="col-12 col-sm-6">
+          <div class="col-12 col-sm-5">
             <h3 class="my-3">Tên sản phẩm: <?= $SanPham['ten_san_pham'] ?></h3>
             <hr>
             <h4 class="mt-3">Giá tiền: <small><?= $SanPham['gia_san_pham'] ?></small></h4>
@@ -51,8 +54,8 @@
             <h4 class="mt-3">Danh mục: <small><?= $SanPham['ten_danh_muc'] ?></small></h4>
             <h4 class="mt-3">Trạng thái: <small><?= $SanPham['trang_thai'] == 1 ? 'Còn bán' : 'Dừng bán' ?></small></h4>
             <h4 class="mt-3">Mô tả: <small><?= $SanPham['mo_ta'] ?></small></h4>
-
           </div>
+          
         </div>
 
         <div class="col-12">

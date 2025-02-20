@@ -16,8 +16,11 @@ include './views/layout/header.php';
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
+                <div class="col-sm-11">
                     <h1>Quản lý thôn tin đơn hàng </h1>
+                </div>
+                <div class="col-12 col-sm-1">
+                    <a href="<?= BASE_URL_ADMIN . '?act=don-hang' ?>" class="btn btn-warning">Quay lại</a>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -82,17 +85,18 @@ include './views/layout/header.php';
                                     <label for="inputStatus">Trạng thái đơn hàng</label>
                                     <select id="inputStatus" name="trang_thai_id" class="form-control custom-select">
                                         <?php foreach ($listTrangThaiDonHang as $TrangThai) : ?>
-                                            <option 
-                                                <?php 
-                                                     if($DonHang['trang_thai_id'] > $TrangThai['id']
-                                                     || $DonHang['trang_thai_id'] == 9
-                                                     || $DonHang['trang_thai_id'] == 10
-                                                     || $DonHang['trang_thai_id'] == 11)
-                                                     {
-                                                        echo 'disabled';
-                                                     }
-                                                ?> 
-                                                <?= $TrangThai['id'] == $DonHang['trang_thai_id'] ? 'selected' : '' ?> 
+                                            <option
+                                                <?php
+                                                if (
+                                                    $DonHang['trang_thai_id'] > $TrangThai['id']
+                                                    || $DonHang['trang_thai_id'] == 9
+                                                    || $DonHang['trang_thai_id'] == 10
+                                                    || $DonHang['trang_thai_id'] == 11
+                                                ) {
+                                                    echo 'disabled';
+                                                }
+                                                ?>
+                                                <?= $TrangThai['id'] == $DonHang['trang_thai_id'] ? 'selected' : '' ?>
                                                 value="<?= $TrangThai['id']; ?>">
                                                 <?= $TrangThai['ten_trang_thai']; ?>
                                             </option>
