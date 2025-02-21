@@ -86,7 +86,7 @@
                                                 <div class="pro-qty"><input type="text" value="1" name="so_luong"></div>
                                             </div>
                                             <div class="action_link">
-                                                <button class="btn btn-cart2" >Thêm giỏ hàng</button>
+                                                <button class="btn btn-cart2">Thêm giỏ hàng</button>
                                             </div>
                                         </div>
                                     </form>
@@ -115,8 +115,9 @@
                                             <?php foreach ($listBinhluan as $BinhLuan): ?>
                                                 <div class="total-reviews">
                                                     <div class="rev-avatar">
-                                                    <img src="<?= BASE_URL . $thongTin['anh_dai_dien']; ?>" style="width: 150px" class="avatar img-circle" alt="avatar"
-                                                    onerror="this.onerror=null; this.src='https://cdn1.iconfinder.com/data/icons/marketing-19/100/Profile-512.png'">
+                                                        <img src="<?= BASE_URL .  $BinhLuan['anh_dai_dien'] ?>" style="width: 100px" alt=""
+                                                            onerror="this.onerror=null; this.src='https://cdn1.iconfinder.com/data/icons/marketing-19/100/Profile-512.png'">
+                                                        <img src="<?= $BinhLuan['anh_dai_dien'] ?>" alt="">
                                                     </div>
                                                     <div class="review-box">
 
@@ -153,8 +154,8 @@
     </div>
     <!-- page main wrapper end -->
 
-   <!-- related products area start -->
-   <section class="related-products section-padding">
+    <!-- related products area start -->
+    <section class="related-products section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -231,10 +232,10 @@
 </main>
 
 <!-- Scroll to top start -->
-<div class="scroll-top not-visible">
-    <i class="fa fa-angle-up"></i>
-</div>
+
 <!-- Scroll to Top End -->
+
+<?php require_once './views/layout/miniCart.php'; ?>
 <!-- Footer -->
 <?php include './views/layout/footer.php'; ?>
 

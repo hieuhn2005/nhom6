@@ -60,7 +60,7 @@ class SanPham {
     public function getBinhLuanFromSanPham($id)
     {
         try {
-            $sql = 'SELECT binh_luans.*, tai_khoans.ho_ten
+            $sql = 'SELECT binh_luans.*, tai_khoans.ho_ten, tai_khoans.anh_dai_dien
             FROM binh_luans
             INNER JOIN tai_khoans ON binh_luans.tai_khoan_id = tai_khoans.id
             WHERE binh_luans.san_pham_id = :id
@@ -76,6 +76,7 @@ class SanPham {
             echo "Lỗi" . $e->getMessage();
         }
     }
+
 
     public function getListSanPhamDanhMuc($danh_muc_id){
         try {                              
