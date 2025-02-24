@@ -50,7 +50,7 @@
                             <!-- làm nút submit với nút quay lại ngang hàng -->
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">thêm</button>
-                                <a href="<?= BASE_URL_ADMIN . '?act=danh-muc' ?>" class="btn btn-warning">Quay lại</a>
+                                <a href="<?= BASE_URL_ADMIN . '?act=view_banner' ?>" class="btn btn-warning">Quay lại</a>
                             </div>
                         </form>
                     </div>

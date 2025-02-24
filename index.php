@@ -27,6 +27,8 @@ match ($act) {
 
     'chi-tiet-san-pham' => (new HomeController())->chiTietSanPham(),
     'them-gio-hang' => (new HomeController())->addGioHang(),
+    'gio-hang' => (new HomeController())->gioHang(),
+    'xoa-gio-hang' => (new HomeController())->deleteGioHang(),
 
 
     // Auth
