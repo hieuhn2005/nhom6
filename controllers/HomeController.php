@@ -173,8 +173,15 @@ class HomeController
             die;
         }
     }
+public function thanhtoan(){
+    require_once './views/thanhtoan/thanhtoan.php';
+}
 
-
-    
+public function sanpham()
+{
+    $listsansham = $this->modelSanPham->getAllSanPham();
+    // var_dump($listProduct);die();
+    require_once './views/sanphams/SanPham.php';
+}
 }
 
