@@ -27,7 +27,7 @@
                                     <nav class="desktop-menu">
                                         <ul>
                                             <li><a href="<?= BASE_URL . '?act=/'?>">TRANG CHỦ</a></li>
-                                            <li><a href="#">SẢN PHẨM</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=san-pham'?>">SẢN PHẨM</a></li>
                                             <li><a href="#">LIÊN HỆ VỚI CHÚNG TÔI</a></li>
                                         </ul>
                                     </nav>
