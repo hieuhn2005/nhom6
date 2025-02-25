@@ -60,7 +60,8 @@
                                             </a>
                                             <ul class="dropdown-list">
                                                 <?php if (!isset($_SESSION['user_client'])) { ?>
-                                                    <li><a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập </a></li>                                                   
+                                                    <li><a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập </a></li>    
+                                                    <li><a href="<?= BASE_URL . '?act=dang-ky' ?>">Đăng ký</a></li>                                               
                                                 <?php } else { ?>
                                                     <li><a href="#">Tài khoản</a></li>
                                                     <li><a href="<?= BASE_URL . '?act=logout' ?>" onclick="return confirm('Đăng xuất tài khoản')">Đăng Xuất</a></li>

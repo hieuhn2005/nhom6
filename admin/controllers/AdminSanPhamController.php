@@ -21,23 +21,18 @@ class AdminSanPhamController
 
     public function formAddSanPham()
     {
-        //hàm này dùng để hiện thi form nhập
         $listDanhMuc = $this->modelDanhMuc->getAllDanhMuc();
 
         require_once './views/sanpham/addSanPham.php';
 
-        // xóa session sau khi load trang
         deleteSessionError();
     }
 
     public function postAddSanPham()
     {
-        //hàm này dùng để xử lý thêm dữ liệu
 
 
-        // kiểm tra xem dữ liệu có phải đc subimt lên ko
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // lấy ra dữ liệu
             $ten_san_pham = $_POST['ten_san_pham'] ?? '';
             $gia_san_pham = $_POST['gia_san_pham'] ?? '';
             $gia_khuyen_mai = $_POST['gia_khuyen_mai'] ?? '';
@@ -50,15 +45,12 @@ class AdminSanPhamController
             $hinh_anh = $_FILES['hinh_anh'] ?? null;
 
 
-            // lưu hình ảnh vào 
             $file_thumb = uploadFile($hinh_anh, './uploads/');
 
 
-            // mảng hình ảnh
             $img_array = $_FILES['img_array'];
 
 
-            // tạo 1 mảng trống để chứa dữ liệu
             $errors = [];
 
             if (empty($ten_san_pham)) {
@@ -90,9 +82,7 @@ class AdminSanPhamController
             $_SESSION['error'] = $errors;
 
 
-            // nếu ko có lỗi thì tiến hành thêm sản phẩm
             if (empty($errors)) {
-                // nếu ko có lỗi thì tiến hàng thêm sản phẩm
                 // var_dump('ok');
 
                 $san_pham_id = $this->modelSanPham->insertSanPham(
@@ -107,7 +97,6 @@ class AdminSanPhamController
                     $file_thumb
                 );
 
-                // xử lý thêm album ảnh sản phẩm img_array
                 if (!empty($img_array['name'])) {
                     foreach ($img_array['name'] as $key => $value) {
                         $file = [
@@ -127,8 +116,6 @@ class AdminSanPhamController
                 header("location: " . BASE_URL_ADMIN . '?act=san-pham');
                 exit();
             } else {
-                //Trả về form và lỗi 
-                // Đặt chỉ thị xóa section sau khi hiển thị form
                 $_SESSION['flash'] = true;
 
                 header("location: " . BASE_URL_ADMIN . '?act=form-them-san-pham');
@@ -140,8 +127,6 @@ class AdminSanPhamController
 
     public function formEditSanPham()
     {
-        //hàm này dùng để hiện thi form nhập
-        // lấy ra thông tin của sản phẩm cần sủa
         $id = $_GET['id_san_pham'];
         $SanPham = $this->modelSanPham->getDetailSanPham($id);
         $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
@@ -158,15 +143,9 @@ class AdminSanPhamController
 
     public function postEditSanPham()
     {
-        //hàm này dùng để xử lý thêm dữ liệu
-
-
-        // kiểm tra xem dữ liệu có phải đc subimt lên ko
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // lấy ra dữ liệu
-            // lấy ra dữ liệu cũ của ảnh sản phẩm
             $san_pham_id = $_POST['san_pham_id'] ?? '';
-            // Truy vấn
+
             $SanPhamOld = $this->modelSanPham->getDetailSanPham($san_pham_id);
             $old_file = $SanPhamOld['hinh_anh']; // lấy ảnh cũ để phục vụ cho sửa ảnh
 
@@ -185,7 +164,6 @@ class AdminSanPhamController
 
 
 
-            // tạo 1 mảng trống để chứa dữ liệu
             $errors = [];
 
             if (empty($ten_san_pham)) {
@@ -214,9 +192,7 @@ class AdminSanPhamController
 
             $_SESSION['error'] = $errors;
 
-            // logic sửa ảnh 
             if (isset($hinh_anh) && $hinh_anh['error'] == UPLOAD_ERR_OK) {
-                // upload ảnh mới lên
                 $new_file = uploadFile($hinh_anh, './uploads/');
 
                 if (!empty($old_file)) {   // Nếu có ảnh cũ thì xóa đi
@@ -227,10 +203,8 @@ class AdminSanPhamController
             }
 
 
-            // nếu ko có lỗi thì tiến hành thêm sản phẩm
             if (empty($errors)) {
                 // var_dump('abc'); die;
-                // nếu ko có lỗi thì tiến hàng thêm sản phẩm
                 // var_dump('ok');
 
                 $this->modelSanPham->updateSanPham(
@@ -250,8 +224,6 @@ class AdminSanPhamController
                 header("location: " . BASE_URL_ADMIN . '?act=san-pham');
                 exit();
             } else {
-                //Trả về form và lỗi 
-                // Đặt chỉ thị xóa section sau khi hiển thị form
                 $_SESSION['flash'] = true;
 
                 header("location: " . BASE_URL_ADMIN . '?act=form-sua-san-pham&id_san_pham=' . $san_pham_id);
@@ -274,17 +246,14 @@ class AdminSanPhamController
             $listAnhSanPhamCurrent = $this->modelSanPham->getListAnhSanPham($san_pham_id);
 
 
-            //xử lý các  ảnh đc gửi từ from
             $img_array = $_FILES['img_array'];
             $img_delete = isset($_POST['img_delete']) ? explode(',', $_POST['img_delete']) : [];
             $current_img_ids =  $_POST['current_img_ids'] ?? [];
 
 
-            //khai báo mảng để lưu ảnh thếm mới để thay thế ảnh cũ
             $upload_file = [];
 
 
-            // Upload ảnh mới hoặc thay thế ảnh cũ
             foreach ($img_array['name'] as $key => $value) {
                 if ($img_array['error'][$key] == UPLOAD_ERR_OK) {
                     $new_file = uploadFileAlbum($img_array, './uploads/', $key);
@@ -297,19 +266,15 @@ class AdminSanPhamController
                 }
             }
 
-            // lưu ảnh mới vào db và xóa ảnh cũ
             foreach ($upload_File as $file_info) {
                 if ($file_info['id']) {
                     $old_file = $this->modelSanPham->getDetailAnhSanPham($file_info['id'])['link_hinh_anh'];
 
 
-                    // cập nhật ảnh cũ 
                     $this->modelSanPham->updateAnhSanPham($file_info['id'], $file_info['file']);
 
-                    // xóa ảnh cũ
                     deleteFile($old_file);
                 } else {
-                    // thêm ảnh mơis
                     $this->modelSanPham->insertAlbumAnhSanPham($san_pham_id, $file_info['file']);
                 }
             }

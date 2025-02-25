@@ -29,16 +29,12 @@ class AdminTaiKhoanController
 
 
     public function postAddQuanTri(){
-        //hàm này dùng để xử lý thêm dữ liệu
         
 
-        // kiểm tra xem dữ liệu có phải đc subimt lên ko
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // lấy ra dữ liệu
             $ho_ten = $_POST['ho_ten'];
             $email = $_POST['email'];
 
-            // tạo 1 mảng trống để chứa dữ liệu
             $errors = [];
             if (empty($ho_ten)) {
                 $errors['ho_ten'] = 'Họ tên không được để trống';
@@ -50,15 +46,12 @@ class AdminTaiKhoanController
 
             $_SESSION['error'] = $errors;
 
-            // nếu ko có lỗi thì tiến hành thêm tai khoan
             if (empty($errors)) {
-                // nếu ko có lỗi thì tiến hàng thêm tai khoan
                 // var_dump('ok');
 
                 // Đặt password mặc định - 123@123ab
                 $password = password_hash('123@123ab', PASSWORD_BCRYPT);
 
-                //khai báo chức vụ
                 $chuc_vu_id = 1;
                 // var_dump($password);die;
                 $abc = $this->modelTaiKhoan->insertTaiKhoan($ho_ten, $email, $password, $chuc_vu_id);
@@ -68,7 +61,6 @@ class AdminTaiKhoanController
                 header("location: " . BASE_URL_ADMIN . '?act=list-tai-khoan-quan-tri');
                 exit();
             } else{
-                //Trả về form và lỗi 
                 $_SESSION['flash'] = true;
 
                 header("location: " . BASE_URL_ADMIN . '?act=form-them-quan-tri');
@@ -87,12 +79,9 @@ class AdminTaiKhoanController
     }
 
     public function postEditQuanTri(){
-        //hàm này dùng để xử lý thêm dữ liệu
         
 
-        // kiểm tra xem dữ liệu có phải đc subimt lên ko
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // lấy ra dữ liệu
 
             $quan_tri_id = $_POST['quan_tri_id'] ?? '';
 
@@ -101,7 +90,6 @@ class AdminTaiKhoanController
             $so_dien_thoai = $_POST['so_dien_thoai'] ?? '';
             $trang_thai = $_POST['trang_thai'] ?? '';
 
-            // tạo 1 mảng trống để chứa dữ liệu
             $errors = [];
 
             if (empty($ho_ten)) {
@@ -130,8 +118,6 @@ class AdminTaiKhoanController
                 header("location: " . BASE_URL_ADMIN . '?act=list-tai-khoan-quan-tri');
                 exit();
             } else{
-                //Trả về form và lỗi 
-                // Đặt chỉ thị xóa section sau khi hiển thị form
                 $_SESSION['flash'] = true;
 
                 header("location: " . BASE_URL_ADMIN . '?act=form-sua-quan-tri&id_quan_tri=' . $quan_tri_id);
@@ -179,10 +165,8 @@ class AdminTaiKhoanController
     }
 
     public function postEditkhachHang(){
-        //hàm này dùng để xử lý thêm dữ liệu
         
 
-        // kiểm tra xem dữ liệu có phải đc subimt lên ko
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // lấy ra dữ liệu
 
@@ -196,7 +180,6 @@ class AdminTaiKhoanController
             $dia_chi = $_POST['dia_chi'] ?? '';
             $trang_thai = $_POST['trang_thai'] ?? '';
 
-            // tạo 1 mảng trống để chứa dữ liệu
             $errors = [];
 
             if (empty($ho_ten)) {
@@ -234,8 +217,6 @@ class AdminTaiKhoanController
                 header("location: " . BASE_URL_ADMIN . '?act=list-tai-khoan-khach-hang');
                 exit();
             } else{
-                //Trả về form và lỗi 
-                // Đặt chỉ thị xóa section sau khi hiển thị form
                 $_SESSION['flash'] = true;
 
                 header("location: " . BASE_URL_ADMIN . '?act=form-sua-khach-hang&id_khach_hang=' . $khach_hang_id);

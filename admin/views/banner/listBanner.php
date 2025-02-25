@@ -48,7 +48,7 @@
                     <tr>
                       <td><?= $key + 1 ?></td>
                       <td><?= $banner['ten_banner'] ?></td>
-                      <td><img src="<?= $banner['anh'] ?>" alt="<?= $banner['ten_banner'] ?>" width="200"></td>
+                      <td><img src="<?= BASE_URL . $banner['anh'] ?>" width="200"></td>
                       <td>
                         
                         <a href="<?= BASE_URL_ADMIN . '?act=delete_banner&id_banner=' . $banner['id'] ?>" 

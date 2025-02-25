@@ -43,11 +43,14 @@
 
                                 <div class="form-group">
                                     <label>Chọn Hình Ảnh:</label>
-                                    <input type="file" class="form-control-file" id="anh" name="anh" required accept="image/*">
+                                    <input type="file" class="form-control-file" name="anh" >
+                                    <?php if (isset($errors['anh'])) { ?>
+                                        <p class="text-danger"><?= $errors['anh'] ?></p>
+                                    <?php } ?>
                                 </div>
 
                             </div>
-                            <!-- làm nút submit với nút quay lại ngang hàng -->
+                            
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">thêm</button>
                                 <a href="<?= BASE_URL_ADMIN . '?act=view_banner' ?>" class="btn btn-warning">Quay lại</a>

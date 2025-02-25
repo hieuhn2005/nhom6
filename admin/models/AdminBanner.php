@@ -22,7 +22,7 @@ class Banner
     public function insertBanner($ten_banner, $anh)
     {
         try {
-            $sql = 'INSERT INTO `banner`(`ten_danh_muc`, `anh`)
+            $sql = 'INSERT INTO `banner`(`ten_banner`, `anh`)
                     VALUES (:ten_banner, :anh)';
 
             $stmt = $this->conn->prepare($sql);

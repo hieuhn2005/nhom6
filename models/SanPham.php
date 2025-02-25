@@ -8,7 +8,6 @@ class SanPham {
     }
 
 
-    // Viết hàm lấy toàn bộ dang sách sản phẩm
     public function getAllSanPham(){
         try {                              
             $sql = 'SELECT san_phams.*, danh_mucs.ten_danh_muc

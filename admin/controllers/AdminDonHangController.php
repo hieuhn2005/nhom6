@@ -22,10 +22,8 @@ class AdminDonHangController
         $don_hang_id = $_GET ['id_don_hang'];
 
 
-        // lấy thông tin đơn hàng ở bảng don_hangs
         $DonHang = $this->modelDonHang->getDetailDonHang($don_hang_id);
 
-        // lấy danh sách sản phẩm đã đặt của dơn hàng ở bảng chi_tiet_don_hangs
 
         $sanPhamDonHang = $this->modelDonHang->getlistSpDonHang($don_hang_id);
 
@@ -53,10 +51,7 @@ class AdminDonHangController
 
 
     public function postEditDonHang(){
-        //hàm này dùng để xử lý thêm dữ liệu
-        
 
-        // kiểm tra xem dữ liệu có phải đc subimt lên ko
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // lấy ra dữ liệu
 
@@ -69,7 +64,6 @@ class AdminDonHangController
             $ghi_chu = $_POST['ghi_chu'] ?? '';
             $trang_thai_id = $_POST['trang_thai_id'] ?? '';
 
-            // tạo 1 mảng trống để chứa dữ liệu
             $errors = [];
 
             if (empty($ten_nguoi_nhan)) {
@@ -93,10 +87,8 @@ class AdminDonHangController
             $_SESSION['error'] = $errors;
 
             // var_dump($don_hang_id); die;
-            // nếu ko có lỗi thì tiến hành sửa
             if (empty($errors)) {
                 // var_dump('abc'); die;
-                // nếu ko có lỗi thì tiến hàng thêm sản phẩm
                 // var_dump('ok');
 
                 $this->modelDonHang->updateDonHang($don_hang_id,
@@ -112,8 +104,6 @@ class AdminDonHangController
                 header("location: " . BASE_URL_ADMIN . '?act=don-hang');
                 exit();
             } else{
-                //Trả về form và lỗi 
-                // Đặt chỉ thị xóa section sau khi hiển thị form
                 $_SESSION['flash'] = true;
 
                 header("location: " . BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $don_hang_id);

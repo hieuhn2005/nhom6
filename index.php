@@ -13,6 +13,8 @@ require_once './controllers/HomeController.php';
 require_once './models/SanPham.php';
 require_once './models/TaiKhoan.php';
 require_once './models/GioHang.php';
+require_once './models/DonHang.php';
+
 
 
 // Route
@@ -29,10 +31,16 @@ match ($act) {
     'them-gio-hang' => (new HomeController())->addGioHang(),
     'gio-hang' => (new HomeController())->gioHang(),
     'xoa-gio-hang' => (new HomeController())->deleteGioHang(),
+    'thanh-toan' => (new HomeController())->thanhToan(),
+    'xu-ly-thanh-toan' => (new HomeController())->postThanhToan(),
 
 
     // Auth
     'login' => (new HomeController())->formLogin(),
     'check-login' => (new HomeController())->postLogin(),
     'logout' => (new HomeController())->logout(),
+
+    'dang-ky' => (new HomeController())->formDangKy(),
+    'them-dang-ky' => (new HomeController())->postAddDangKy(),
+
 };
