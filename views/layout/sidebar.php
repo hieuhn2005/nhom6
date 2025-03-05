@@ -27,7 +27,7 @@
                                     <nav class="desktop-menu">
                                         <ul>
                                             <li><a href="<?= BASE_URL . '?act=/' ?>">TRANG CHỦ</a></li>
-                                            <li><a href="#">SẢN PHẨM</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=san-pham' ?>">SẢN PHẨM</a></li>
                                             <li><a href="#">LIÊN HỆ VỚI CHÚNG TÔI</a></li>
                                         </ul>
                                     </nav>
@@ -63,7 +63,7 @@
                                                     <li><a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập </a></li>
                                                     <li><a href="<?= BASE_URL . '?act=dang-ky' ?>">Đăng ký</a></li>
                                                 <?php } else { ?>
-                                                    <li><a href="#">Tài khoản</a></li>
+                                                    <li><a href="<?= BASE_URL . '?act=user' ?>">Tài khoản</a></li>
                                                     <li><a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>">Đơn hàng</a></li>
                                                     <li><a href="<?= BASE_URL . '?act=logout' ?>" onclick="return confirm('Đăng xuất tài khoản')">Đăng Xuất</a></li>
                                                 <?php } ?>

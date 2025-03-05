@@ -76,5 +76,16 @@ class TaiKhoan
     }
 }
 
+public function getUser($id) {
+    try {
+        $sql = 'SELECT * FROM tai_khoans WHERE id = :id'; 
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':id' => $id]);
 
+        return $stmt->fetch(PDO::FETCH_ASSOC); 
+    } catch (Exception $e) {
+        echo "Lỗi: " . $e->getMessage();
+        return null; 
+    }
+}
 }
