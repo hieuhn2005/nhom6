@@ -33,7 +33,8 @@ match ($act) {
     'xoa-gio-hang' => (new HomeController())->deleteGioHang(),
     'thanh-toan' => (new HomeController())->thanhToan(),
     'xu-ly-thanh-toan' => (new HomeController())->postThanhToan(),
-
+    'san-pham'=> (new HomeController())->sanpham(),
+    'user'=> (new HomeController())->user(),
 
     // Auth
     'login' => (new HomeController())->formLogin(),

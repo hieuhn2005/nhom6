@@ -300,5 +300,37 @@ class HomeController
     }
 
     
+    public function sanpham()
+{
+    $listsansham = $this->modelSanPham->getAllSanPham();
+    // var_dump($listProduct);die();
+    require_once './views/sanphams/SanPham.php';
+}
+public function user() {
+    if (!isset($_SESSION['user_client'])) {
+        header('Location: index.php?action=login');
+        exit;
+    }
+
+    $mail = $this->modelTaiKhoan->getTaiKhoanFormEmail($_SESSION['user_client']);
+    
+    if ($mail) {
+        $id = $mail['id']; 
+ 
+        if (isset($id)) {
+            $User = $this->modelTaiKhoan->getUser($id); // Gọi phương thức và truyền ID
+
+            if ($User) {
+                require_once './views/user.php'; // Truyền dữ liệu đến view
+            } else {
+                echo "Không tìm thấy thông tin người dùng.";
+            }
+        } else {
+            echo "ID người dùng không hợp lệ.";
+        }
+    } else {
+        echo "Không tìm thấy thông tin người dùng.";
+    }
+}
 }
 
