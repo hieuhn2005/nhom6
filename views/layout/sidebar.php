@@ -20,7 +20,7 @@
                         <!-- start logo area -->
 
                         <!-- main menu area start -->
-                        <div class="col-lg-6 position-static">
+                        <div class="col-lg-5 position-static">
                             <div class="main-menu-area">
                                 <div class="main-menu">
                                     <!-- main menu navbar start -->
@@ -38,7 +38,7 @@
                         <!-- main menu area end -->
 
                         <!-- mini cart area start -->
-                        <div class="col-lg-4">
+                        <div class="col-lg-5">
                             <div class="header-right d-flex align-items-center justify-content-xl-between justify-content-lg-end">
                                 <div class="header-search-container">
                                     <button class="search-trigger d-xl-none d-lg-block"><i class="pe-7s-search"></i></button>

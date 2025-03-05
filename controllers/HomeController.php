@@ -95,6 +95,7 @@ class HomeController
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $ho_ten = $_POST['ho_ten'];
             $email = $_POST['email'];
+            $so_dien_thoai = $_POST['so_dien_thoai'];
             $pass = $_POST['pass'];
             $password = $_POST['password'];
 
@@ -107,6 +108,16 @@ class HomeController
 
             if (empty($email)) {
                 $errors['email'] = 'Email không được để trống';
+            }
+
+            if (empty($so_dien_thoai)) {
+                $errors['so_dien_thoai'] = 'Số diện thoại không được trống';
+            }elseif (empty($so_dien_thoai)) {
+                // tối đa 10 số
+                $errors['so_dien_thoai'] = 'Số điện thoại phải có ít nhất 10 số';
+            } elseif (!is_numeric($so_dien_thoai)) {
+                $errors['so_dien_thoai'] = 'Số diện thoại phải là số';
+            }
             }
 
             if (empty($pass)) {
@@ -125,11 +136,11 @@ class HomeController
 
             if (empty($errors)) {
                 $chuc_vu_id = 2;
-                $this->modelTaiKhoan->insertTaiKhoan($ho_ten, $email, $pass, $chuc_vu_id);
+                $this->modelTaiKhoan->insertTaiKhoan($ho_ten, $email,$so_dien_thoai, $pass, $chuc_vu_id);
                 // var_dump($email);die;
 
                 $_SESSION['user_client'] = $ho_ten;
-                header("Location: " . BASE_URL);
+                header("Location: " . BASE_URL . '?act=login');
                 exit();
             } else {
                 $_SESSION['flash'] = true;
@@ -137,9 +148,7 @@ class HomeController
                 exit();
             }
         }
-    }
-
-
+    
 
     public function logout(){
         if (isset($_SESSION['user_client'])) {
@@ -213,22 +222,19 @@ class HomeController
     public function deleteGioHang()
     {
         if (isset($_SESSION['user_client'])) {
-            $id = $_GET['id_chi_tiet_gio_hang'];
+            $id_chi_tiet = $_GET['id_chi_tiet_gio_hang'];
+            $san_pham_id = $_GET['san_pham_id'];
             
-            $gioHang = $this->modelGioHang->getDetailGioHang($id);
-            if ($gioHang) {
-                $this->modelGioHang->destroyGioHang($id, $gioHang['san_pham_id']);
+            if ($id_chi_tiet && $san_pham_id) {
+                $this->modelGioHang->destroyGioHang($id_chi_tiet, $san_pham_id);
             }
-            // var_dump($id); die;
-
+    
             header("location: " . BASE_URL . '?act=gio-hang');
             exit();
-        }else {
+        } else {
             header("Location:" . BASE_URL . '?act=login');
-            die;
         }
     }
-
 
     public function thanhToan()
     {

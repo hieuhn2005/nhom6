@@ -47,6 +47,14 @@
                                         <span class="text-danger"><?= $_SESSION['email'] ?></span>
                                     <?php } ?>
                                 </div><br>
+                                <!-- số điện thoại -->
+                                <div class="single-input-item">
+                                    <p>Số điện thoại</p>
+                                    <input type="text" placeholder="Nhập số diện thoại" name="so_dien_thoai"  />
+                                    <?php if (isset($_SESSION['so_dien_thoai'])) { ?>
+                                        <span class="text-danger"><?= $_SESSION['so_dien_thoai'] ?></span>
+                                    <?php } ?>
+                                </div>
 
                                 <div class="row">
                                     <div class="col-lg-6">

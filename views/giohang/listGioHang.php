@@ -80,11 +80,12 @@
                                                     </span>
                                                 </td>
                                                 <td class="pro-remove">
-                                                    <a href="<?= BASE_URL . '?act=xoa-gio-hang&id_chi_tiet_gio_hang=' . $SanPham['id'] ?>"
+                                                    <a href="<?= BASE_URL . '?act=xoa-gio-hang&id_chi_tiet_gio_hang=' . $SanPham['id'] . '&san_pham_id=' . $SanPham['san_pham_id'] ?>"
                                                         onclick="return confirm('Bạn có đồng ý xóa hay không???')">
                                                         <i class="fa fa-trash-o"></i>
                                                     </a>
                                                 </td>
+
                                             </tr>
                                         <?php endforeach ?>
                                     <?php endif; ?>

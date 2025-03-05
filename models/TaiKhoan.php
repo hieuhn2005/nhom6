@@ -51,20 +51,21 @@ class TaiKhoan
         }
     }
 
-    public function insertTaiKhoan($ho_ten, $email, $password, $chuc_vu_id)
+    public function insertTaiKhoan($ho_ten, $email, $so_dien_thoai, $password, $chuc_vu_id)
 {
     try {
         // Mã hóa mật khẩu trước khi lưu vào DB
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-        $sql = 'INSERT INTO `tai_khoans` (`ho_ten`, `email`, `mat_khau`, `chuc_vu_id`)
-                VALUES (:ho_ten, :email, :mat_khau, :chuc_vu_id)';
+        $sql = 'INSERT INTO `tai_khoans` (`ho_ten`, `email`, `so_dien_thoai`, `mat_khau`, `chuc_vu_id`)
+                VALUES (:ho_ten, :email, :so_dien_thoai, :mat_khau, :chuc_vu_id)';
 
         $stmt = $this->conn->prepare($sql);
 
         $stmt->execute([
             ':ho_ten' => $ho_ten,
             ':email' => $email,
+            ':so_dien_thoai' => $so_dien_thoai,
             ':mat_khau' => $hashedPassword, // Đổi `:password` -> `:mat_khau`
             ':chuc_vu_id' => $chuc_vu_id,
         ]);

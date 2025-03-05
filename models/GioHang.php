@@ -89,7 +89,7 @@ class GioHang
 
     public function destroyGioHang($id, $san_pham_id){
         try {
-            $sql = ' DELETE FROM `chi_tiet_gio_hangs` WHERE `id` = :id , `san_pham_id` = :san_pham_id';
+            $sql = ' DELETE FROM `chi_tiet_gio_hangs` WHERE `id` = :id AND `san_pham_id` = :san_pham_id';
 
             $stmt = $this->conn->prepare($sql);
 
