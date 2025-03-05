@@ -151,11 +151,11 @@
                     </tr>
                     <tr>
                       <th>Vận chuyển:</th>
-                      <td>200.000 Đ</td>
+                      <td>Miễn Phí vận chuyển</td>
                     </tr>
                     <tr>
                       <th>Tổng tiền:</th>
-                      <td><?= $tong_tien + 200000 ?></td>
+                      <td><?= $tong_tien ?></td>
                     </tr>
                   </table>
                 </div>

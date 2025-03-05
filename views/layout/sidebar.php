@@ -11,7 +11,7 @@
                         <!-- start logo area -->
                         <div class="col-lg-2">
                             <div class="logo">
-                                <a href="<?= BASE_URL . '?act=/'?>">
+                                <a href="<?= BASE_URL . '?act=/' ?>">
                                     <img src="assets/images/logo2.png" alt="Brand Logo"
                                         width="200px" height="130px">
                                 </a>
@@ -26,7 +26,7 @@
                                     <!-- main menu navbar start -->
                                     <nav class="desktop-menu">
                                         <ul>
-                                            <li><a href="<?= BASE_URL . '?act=/'?>">TRANG CHỦ</a></li>
+                                            <li><a href="<?= BASE_URL . '?act=/' ?>">TRANG CHỦ</a></li>
                                             <li><a href="#">SẢN PHẨM</a></li>
                                             <li><a href="#">LIÊN HỆ VỚI CHÚNG TÔI</a></li>
                                         </ul>
@@ -60,13 +60,14 @@
                                             </a>
                                             <ul class="dropdown-list">
                                                 <?php if (!isset($_SESSION['user_client'])) { ?>
-                                                    <li><a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập </a></li>    
-                                                    <li><a href="<?= BASE_URL . '?act=dang-ky' ?>">Đăng ký</a></li>                                               
+                                                    <li><a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập </a></li>
+                                                    <li><a href="<?= BASE_URL . '?act=dang-ky' ?>">Đăng ký</a></li>
                                                 <?php } else { ?>
                                                     <li><a href="#">Tài khoản</a></li>
+                                                    <li><a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>">Đơn hàng</a></li>
                                                     <li><a href="<?= BASE_URL . '?act=logout' ?>" onclick="return confirm('Đăng xuất tài khoản')">Đăng Xuất</a></li>
                                                 <?php } ?>
-                                                
+
                                             </ul>
                                         </li>
                                         <li>

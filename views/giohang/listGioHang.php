@@ -106,27 +106,38 @@
                                 <h6>Tổng đơn hàng</h6>
                                 <div class="table-responsive">
                                     <table class="table">
-                                        <tr>
-                                            <td>Tổng tiền sản phẩm</td>
-                                            <td><?= formatPrice($tongGioHang) . 'đ' ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vận chuyện</td>
-                                            <td>30.000 đ</td>
-                                        </tr>
-                                        <tr class="total">
-                                            <td>Tổng thanh toán</td>
-                                            <td class="total-amount"><?= formatPrice($tongGioHang + 30000) . 'đ' ?></td>
-                                        </tr>
+                                        <?php if (!empty($tongGioHang) && $tongGioHang > 0): ?>
+                                            <tr>
+                                                <td>Tổng tiền sản phẩm</td>
+                                                <td><?= formatPrice($tongGioHang) . 'đ' ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Vận chuyển</td>
+                                                <td>Miễn Phí vận chuyển</td>
+                                            </tr>
+                                            <tr class="total">
+                                                <td>Tổng thanh toán</td>
+                                                <td class="total-amount"><?= formatPrice($tongGioHang) . 'đ' ?></td>
+                                            </tr>
+                                        <?php else: ?>
+                                            <tr>
+                                                <td colspan="2" class="text-center">Giỏ hàng của bạn đang trống</td>
+                                            </tr>
+                                        <?php endif; ?>
                                     </table>
                                 </div>
                             </div>
-                            <a href="<?= BASE_URL . '?act=thanh-toan' ?>" class="btn btn-sqr d-block">Tiến hành đặt hàng</a>
+                            <?php if (!empty($tongGioHang) && $tongGioHang > 0): ?>
+                                <a href="<?= BASE_URL . '?act=thanh-toan' ?>" class="btn btn-sqr d-block">Tiến hành đặt hàng</a>
+                            <?php else: ?>
+                                <a href="<?= BASE_URL ?>" class="btn btn-sqr d-block">Tiếp tục mua sắm</a>
+                            <?php endif; ?>
                         </div>
                     </div>
-                </div>
             </div>
+
         </div>
+    </div>
     </div>
     <!-- cart main wrapper end -->
 </main>
