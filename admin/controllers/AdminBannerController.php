@@ -19,39 +19,52 @@ class AdminBannerController
     {
         require_once './views/banner/addBanner.php';
     }
-
-    public function addBanner(){
-
+    public function addBanner()
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-            $ten_banner = $_POST['ten_banner'];
-            $anh = $_POST['anh'];
+            $ten_banner = $_POST['ten_banner'] ?? '';
+            $anh = $_FILES['anh'] ?? null; // Kiểm tra nếu $_FILES['anh'] không tồn tại
 
             $errors = [];
+
             if (empty($ten_banner)) {
                 $errors['ten_banner'] = 'Tên banner không được để trống';
             }
 
-            if (empty($anh)) {
-                $errors['anh'] = 'Ảnh không được để trống';
+            if (!isset($_FILES['anh']) || $_FILES['anh']['error'] !== 0) {
+                $errors['anh'] = 'Phải chọn ảnh banner hợp lệ';
             }
 
             if (empty($errors)) {
+                // Upload ảnh banner nếu tồn tại
+                $file_banner = uploadFile($_FILES['anh'], './uploads/');
 
-                // var_dump('ok');
+                if ($file_banner) {
+                    // Lưu vào database
+                    $this->modelBanner->insertBanner($ten_banner, $file_banner);
 
-                $this->modelBanner->insertBanner($ten_banner, $anh);
-                // var_dump($ten_banner);die;
-                header("location: " . BASE_URL_ADMIN . '?act=view_banner');
-                exit();
-            } else{
-                require_once './views/banner/addBanner.php';
+                    // Chuyển hướng về trang danh sách banner
+                    header("location: " . BASE_URL_ADMIN . '?act=view_banner');
+                    exit();
+                } else {
+                    $errors['anh'] = 'Tải ảnh lên thất bại';
+                }
             }
+
+            // echo '<pre>';
+            // print_r($_FILES);
+            // echo '</pre>';
+            // exit();
+
+            $_SESSION['error'] = $errors;
+            require_once './views/banner/addBanner.php';
         }
     }
 
 
-    public function deleteBanner(){
+
+    public function deleteBanner()
+    {
         $id = $_GET['id_banner'];
         $banner = $this->modelBanner->getDetailBanner($id);
 
@@ -60,7 +73,6 @@ class AdminBannerController
         }
 
         header("location: " . BASE_URL_ADMIN . '?act=view_banner');
-                exit();
+        exit();
     }
-
 }

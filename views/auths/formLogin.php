@@ -31,11 +31,9 @@
                     <div class="col-lg-12">
                         <div class="login-reg-form-wrap">
                             <h5 class="text-center">ĐĂNG NHẬP</h5>
-                            <?php if (isset($_SESSION['error'])) { ?>
-                                <p class="text-danger login-box-msg"><?= $_SESSION['error'] ?></p>
-                            <?php } else { ?>
-                                <p class="login-box-msg">Đăng nhập tài khoản của bạn</p>
-                            <?php } ?>
+                            <br>
+                            <p class="login-box-msg text-center">Đăng nhập tài khoản của bạn</p>
+                            
                             <form action="<?= BASE_URL . '?act=check-login'  ?>" method="post">
                                 <div class="single-input-item">
                                     <input type="email" placeholder="Vui lòng nhập email" name="email" required />

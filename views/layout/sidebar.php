@@ -73,7 +73,7 @@
                                         <li>
                                             <a href="#" class="minicart-btn">
                                                 <i class="pe-7s-shopbag"></i>
-                                                <div class="notification">2</div>
+                                                
                                             </a>
                                         </li>
                                     </ul>

@@ -31,7 +31,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Thêm banner</h3>
                         </div>
-                        <form action="<?= BASE_URL_ADMIN . '?act=add_banner' ?>" method="POST">
+                        <form action="<?= BASE_URL_ADMIN . '?act=add_banner' ?>" method="POST" enctype="multipart/form-data">
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Tên banner</label>
@@ -42,15 +42,15 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Chọn Hình Ảnh:</label>
-                                    <input type="file" class="form-control-file" name="anh" >
+                                    <label for="anh">Chọn Ảnh:</label>
+                                    <input type="file" name="anh" id="anh" required>
                                     <?php if (isset($errors['anh'])) { ?>
                                         <p class="text-danger"><?= $errors['anh'] ?></p>
                                     <?php } ?>
                                 </div>
 
                             </div>
-                            
+
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">thêm</button>
                                 <a href="<?= BASE_URL_ADMIN . '?act=view_banner' ?>" class="btn btn-warning">Quay lại</a>
@@ -74,5 +74,3 @@
 </body>
 
 </html>
-
-
